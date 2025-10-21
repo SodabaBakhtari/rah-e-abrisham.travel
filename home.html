@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon 16x16" href="./img/font.png">
+    <!--CSS Link-->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- google foont  -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <title>Rah-e-Abrisham</title>
+    <style>
+        body.darkmode{
+            background-color: black;
+            color: #f1f1f1;
+        }
+        body.darkmode .main{
+            background-color: #333;
+        }
+        body.darkmode a {
+            color: #133e22;
+        } 
+        body.darkmode .second,
+        body.darkmode .fourth,
+        body.darkmode .third,
+        body.darkmode .fiveth {
+            background-color: #727272;
+        }
+        body.darkmode #mainNav.scrolled{
+            background-color: rgba(241, 241, 241, 0.575) !important;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body id="page-top dark-mode" >
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">Rah-e-Abrisham.travel</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button id="theme-switch">
+                <img src="./img/dark_mode_24dp_000000_FILL1_wght400_GRAD0_opsz24.png" alt="dark">
+                <img src="./img/light_mode_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.png" alt="light">        
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="home.html" target="_blank"><i class="fa fa-home" aria-hidden="true" ></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="destinations.html" target="_blank"><i class="fa fa-plane" aria-hidden="true"></i> Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://sodababakhtari.github.io/portfolio/" target="_blank"><i class="fa-solid fa-user"></i> Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" target="_blank"><i class="fa-solid fa-id-badge"></i> Contact</a></li>
+                    <li class="nav-item"><a class="log-out btn btn-success ms-2" href="index.html">Log-out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header with background -->
+    <header class="head d-flex align-items-center">
+        <div id="welcome"></div>
+    <div class=" text-center text-black">
+    <div class="glass-box p-4 first-text">
+        <h1 class="fw-bold display-4">Explore the Silk Road of Asia</h1>
+        <p class="lead">Discover destinations in Afghanistan and beyond</p>
+    </div>
+
+            <!-- Form -->
+    <form class="row g-2 justify-content-center mt-4 p-3 form">
+    <div class="col-md-3">
+        <label for="destination" class="form-label"><small><strong>Where are you going?</strong></small></label>
+        <div class="dropdown">
+        <input type="text" class="form-control" id="destination" placeholder="City, hotel, or place of interest">
+        <div class="dropdown-content">
+           <a href="#" id="af"><i class="fa-solid fa-location-dot"></i> Afghanistan</a>
+            <a href="#" id="tg"><i class="fa-solid fa-location-dot"></i> Tajikistan</a>
+            <a href="#" id="ir"><i class="fa-solid fa-location-dot"></i> Iran</a>
+            <a href="#" id="pk"><i class="fa-solid fa-location-dot"></i> Pakistan</a>
+            <a href="#" id="tk"><i class="fa-solid fa-location-dot"></i> Turkey</a>
+        </div>
+       </div>
+    </div>
+    <div class="col-md-2">
+        <label for="check-in" class="form-label"><small><strong>Check-in Date</strong></small></label>
+        <input type="date" class="form-control" id="check-in">
+    </div>
+    <div class="col-md-2">
+        <label for="check-out" class="form-label"><small><strong>Check-out Date</strong></small></label>
+        <input type="date" class="form-control" id="check-out">
+    </div>
+    <div class="col-md-3">
+   <label class="form-label">
+      <small><strong>Guests & Rooms</strong></small>
+   </label>
+
+   <!-- دکمه برای باز کردن مدال -->
+   <button type="button" class="form-control text-start" 
+           data-bs-toggle="modal" data-bs-target="#guestModal">
+       <span id="guest-summary">2 Adults, 0 Children, 1 Room</span>
+   </button>
+</div>
+
+<!-- مدال برای انتخاب Guests & Rooms -->
+<div class="modal fade" id="guestModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <h5>Select Guests & Rooms</h5>
+
+      <!-- Adults -->
+      <div>
+        <label>Adults: </label>
+        <button type="button" id="adultMinus" class="minas">-</button>
+        <span id="adultNum">2</span>
+        <button type="button" id="adultPlus" class="plural">+</button>
+      </div>
+
+      <!-- Children -->
+      <div>
+        <label>Children: </label>
+        <button type="button" id="childMinus" class="minas">-</button>
+        <span id="childNum">0</span>
+        <button type="button" id="childPlus" class="plural">+</button>
+      </div>
+
+      <!-- Rooms -->
+      <div>
+        <label>Rooms: </label>
+        <button type="button" id="roomMinus" class="minas">-</button>
+        <span id="roomNum">1</span>
+        <button type="button" id="roomPlus" class="plural">+</button>
+      </div>
+
+      <div class="mt-3">
+        <button type="button" id="doneBtn" data-bs-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="col-md-2 d-grid align-self-end">
+        <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-search" id="searchBtn"></i> search</button>
+    </div>
+    </form>
+    </div>
+    </header>
+    <!-- second section -->
+
+<section class="main">
+    <section class="move-up second">
+    <div class="card-list">
+        <h2><span><img src="./img/icon0.png" alt="icon0"></span>- Why Rah-e-Abrisham.travel <i class="fa-solid fa-question"></i></h2>
+        <div class="cards-row">
+            <div class="card-box">
+                <h3><span><img src="./img/icon1.png" alt="icon1"></span>- Book now, pay at the property</h3>
+                <p>FREE cancellation on most rooms. No need to pay upfront - reserve your stay and pay when you check in.</p>
+            </div>
+            <div class="card-box">
+                <h3><span><img src="./img/icon2.png" alt="icon2"></span>- 300M+ reviews from fellow travelers</h3>
+                <p>Get trusted information from guests like you. Read genuine reviews from millions of travelers worldwide.</p>
+            </div>
+            <div class="card-box">
+                <h3><span><img src="./img/icon3.png" alt="icon3"></span>- 2+ million properties worldwide</h3>
+                <p>Hotels, guest houses, apartments, and more... Find the perfect accommodation for your travel style.</p>
+            </div>
+            <div class="card-box">
+                <h3><span><img src="./img/icon4.png" alt="icon4"></span>- Trusted 24/7 customer service</h3>
+                <p>We're always here to help. Our customer service team is available around the clock to assist you.</p>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- third-section -->
+    <!-- in here we use Bootstrap carousel -->
+    <section class="move-up third" >
+        <h2><span><img src="./img/icon5.png" alt="icon5"></span>Special Offers</h2>
+        <p>- Promotions, deals and special offers for you</p>
+     <div id="offerCarousel" class="carousel slide custom-carousel" data-bs-ride="carousel">
+      <button class="carousel-control-prev" type="button" data-bs-target="#offerCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="offer-box p-4 text-white">
+            <h3>Quick escape, quality time</h3>
+            <p>Book by August 31, 2024 for stays through December 31, 2024. Use code: SUMMER15</p>
+            <a href="#" class="btn btn-success">Book Now</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="offer-box p-4 text-white">
+            <h3>Explore Afghanistan's Hidden Gems</h3>
+            <p>Discover off-the-beaten-path destinations with our curated travel guides and itineraries.</p>
+            <a href="#" class="btn btn-success">Learn More</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="offer-box p-4 text-white ">
+            <h3>Refer a Friend, Earn Rewards</h3>
+            <p>Invite friends to book with Rah-e-Abrisham.travel and earn travel credits for your next trip.</p>
+            <a href="#" class="btn btn-success">Refer Now</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-next" type="button" data-bs-target="#offerCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" ></span>
+      </button>
+    </div>
+    </section>
+
+    <!-- section fourth -->
+
+    <section class="move-up fourth">
+        <div class="place">
+            <h2><span><img src="./img/icon6.png" alt="icon6"></span>Trending Place</h2>
+            <div>
+                <div class="continar">
+                    <div class="contry card-AF" >
+                       <a href="destinations.html" role="listitem">
+                        <img src="./img/kabul.jpg" alt="Afghanistan">
+                        <h3 class="map-text">Afghanistan</h3>
+                    </div>
+                   <div class="contry card-tg">
+                       <a href="destinations.html" role="listitem">
+                       <img src="./img/tajikstan.jpg" alt="dushanbe">
+                       <h3 class="map-text">Tajikistan</h3>
+                       </a>
+                   </div> 
+                   <div class="contry card-pk">
+                        <a href="destinations.html" role="listitem">
+                        <img src="./img/pakistan.jpg" alt="Pakistan">
+                        <h3 class="map-text">Pakistan</h3>
+                        </a>
+                    </div>
+                    <div class="contry card-ir">
+                        <a href="destinations.html">
+                        <img src="./img/Iran.jpg" alt="iran">
+                        <h3 class="map-text">Iran</h3>
+                        </a>
+                    </div>
+                    <div class="contry card-uz">
+                        <a href="destinations.html#tk">
+                        <img src="./img/turkey.jpg" alt="turkey">
+                        <h3 class="map-text">Turkey </h3>
+                        </a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+    <section class="move-up fiveth">
+        <h2 class="less">Travel more, spend less</h2>
+        <div class="ragistar">
+            <div>
+                <h3>Sign in, save money</h3>
+                <p>Save 10% or more at participating properties - just look for the blue Genius label</p>
+                <a class="btn btn-success ms-2" href="index.html">Sign-in</a>
+                <a class="btn" href="home.html#destinations" style="color: teal;">register</a>
+            </div>
+        </div>
+    </section>
+    <h2 class="API-text">contact with our team</h2>
+    <div id="userProfiles" class="user-container"></div>
+</section>
+    <section class="last-section">
+        <div class="last-part">
+            <div class="list-part">
+            <div class="footer-link">
+                <h2>support</h2>
+                <a href="#">Coronavirus (COVID-19) FAQS</a><br>
+                <a href="#">Manage your trips</a><br>
+                <a href="#">Privacy & cookies</a><br>
+                <a href="#">Contact Customer Service</a><br>
+                <a href="#">Safety resource centre</a><br>
+            </div>
+            <div class="footer-link">
+                <h2>Discover</h2>
+                <a href="#">Genius loyalty programme</a><br>
+                <a href="#">Seasonal and holiday deals</a><br>
+                <a href="#">Travel articles</a><br>
+                <a href="#">Rah-e-Abrisham.travel for Business</a><br>
+                <a href="#">Rah-e-Abrisham.travel for Travel Agents</a><br>
+            </div>
+            <div class="footer-link">
+                <h2>Terms and settings</h2>
+                <a href="#">Privacy & cookies</a><br>
+                <a href="#">Terms of Service</a><br>
+                <a href="#">Accessibility Statement</a><br>
+                <a href="#">Partner dispute</a><br>
+                <a href="#">Modern Slavery Statement</a><br>
+            </div>
+        </div>
+        <hr class="hr">
+        <footer>
+            <p>Copyright © 2025/ Rah-e-Abrisham.travel. All rights reserved.</p>
+        </footer>
+        </div>
+    </section>
+    <!-- Bootstrap to JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/script.js"></script>
+
+</body>
+</html>

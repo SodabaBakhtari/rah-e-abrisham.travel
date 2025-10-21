@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon 16x16" href="./img/font.png">
+    <title>login page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url(./img/background.jpg);
+            animation: gradientBC 60s ease infinite;
+            overflow: hidden;
+        }
+        @keyframes gradientBC {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .login-page{
+            padding: 40px;
+            margin: 50px;
+            position: relative;
+            width: 350px;
+            height: 500px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+            overflow: hidden;
+        }
+        .login-page::before{
+            content: '';
+            position: absolute;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            transform: skewX(-15deg);
+            transition: 0.5;
+            pointer-events: none;
+        }
+        .login-page:hover::before{
+        left: 120%;
+        }
+        .size{
+            margin-top: 60px;
+        }
+        h2{
+            color: #fff;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 50px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .group{
+            position: relative;
+            margin-bottom: 30px;
+
+        }
+        .group input{
+            width: 100%;
+            padding: 15px 20px ;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            outline: none;
+            border-radius: 35px;
+            font-size: 16px;
+            color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s ease;
+        }
+        .group label{
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            transition: translateY(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 16px;
+            pointer-events: none;
+            transition: all0.3 ease;
+        }
+        .group input:focus + label
+        {
+            top: 0;
+            left: 15px;
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            color: #fff;
+        }
+        .forgot{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .forgot label{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 5px;
+        }
+        .forgot input{
+            margin-right: 8px;
+            accent-color: #fff;
+        }
+        .forgot a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .login-btn{
+            width: 40%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            outline: none;
+            border-radius: 35px;
+            color: #fff;
+            font-size: 17px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .login-btn:hover{
+            background: rgba(66, 165, 218, 0.693);
+            transform: translateY(-3PX);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-page" >
+        <div class="size">
+        <h2>Login first</h2>
+        <form id="loginPage" action="">
+            <div class="group">
+                <input type="text" required placeholder="Your Name" id="username">
+                <label for="text"></label>
+            </div>
+            <div class="group">
+                <input id="password" type="password" required placeholder="Your Password" pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}" title="Password must be at least 8 characters long Contain uppercase and lowercase letters and numbers">
+                <label for="text"></label>
+            </div>
+            <div class="forgot">
+                <label><input type="checkbox">Remember me</label>
+                <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="login-btn" id="loginBtn">Login</button>
+        </form>
+        <p id="message1"></p>
+        </div>
+        
+    </div>
+    <script>
+        const setCookie = (username, value, seconds) => {
+           const expires = new Date(Date.now() + seconds * 1000).toUTCString();
+           document.cookie = `${username}=${value}; expires=${expires}; path=/`;
+        }
+
+        const getCookie = (username) =>{
+            const cookies = document.cookie.split("; ")
+            for(let cookie of cookies){
+                const[key, value] = cookie.split("=")
+                if(key === username) return value
+            }
+            return null
+        }
+        
+        
+     document.getElementById("loginPage").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if (username === "" && password === "") {
+         alert("Please fill in all fields");
+        return; 
+    }
+
+    if(password.length< 4){
+        alert("Password must be at least 4 characters long.");
+        return
+    }
+
+    setCookie("username", username, 7200)
+    sessionStorage.setItem("username", username);
+
+    alert("Login successful!");
+    setTimeout(() => {
+        window.location.href = "home.html";
+    }, 1000);
+});
+  window.onload = () =>{
+    const cookieUser = getCookie("username")
+    const sessionUser = sessionStorage.getItem("username")
+    if(cookieUser || sessionUser){
+        window.location.href = "home.html"
+    }
+  }
+    </script>
+</body>
+</html>

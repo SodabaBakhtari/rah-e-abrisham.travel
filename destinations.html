@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon 16x16" href="./img/font.png">
+    <!--CSS Link-->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- google foont  -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+    <style>
+          body.darkmode{
+            background-color: black;
+            color: #f1f1f1;
+        }
+        body.darkmode .main{
+            background-color: #333;
+        }
+        body.darkmode a {
+            color: #133e22;
+        } 
+        body.darkmode .second,
+        body.darkmode .fourth,
+        body.darkmode .third,
+        body.darkmode .fiveth {
+            background-color: #727272;
+        }
+        body.darkmode #mainNav.scrolled{
+            background-color: rgba(241, 241, 241, 0.575) !important;
+            transition: background-color 0.3s;
+        }
+        body.darkmode .filter-box{
+            background-color: #a49d9d;
+            color: aliceblue;
+        }
+        body.darkmode .hotel-card{
+            background-color: #332e2edc;
+        }
+        body.darkmode .header{
+             background: radial-gradient(circle, #747373, #c7f7e2);
+        }
+        body.darkmode .last-section{
+            background-color: #585252;
+            color: #ffffff;
+        }
+        body.darkmode footer .p{
+            text-align: center;
+        }
+    </style>
+    <title>Rah-e-Abrisham</title>
+</head>
+<body id="page-top dark-mode">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">Rah-e-Abrisham.travel</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button id="theme-switch">
+                <img src="./img/dark_mode_24dp_000000_FILL1_wght400_GRAD0_opsz24.png" alt="dark">
+                <img src="./img/light_mode_24dp_FFFFFF_FILL1_wght400_GRAD0_opsz24.png" alt="light">        
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="home.html" target="_blank"><i class="fa fa-home" aria-hidden="true" ></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="destinations.html" target="_blank"><i class="fa fa-plane" aria-hidden="true"></i> Destinations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://sodababakhtari.github.io/portfolio/" target="_blank"><i class="fa-solid fa-user"></i> Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" target="_blank"><i class="fa-solid fa-id-badge"></i> Contact</a></li>
+                    <li class="nav-item"><a class="log-out btn btn-success ms-2" href="index.html">Log-out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header -->
+    <header class=" header align-items-center" id="search">
+    <div class=" text-center text-black">
+    <div class="glass-box p-4 first-text">
+        <form class="row g-2 justify-content-center mt-4 p-3 form">
+    <div class="col-md-3">
+        <label for="destination" class="form-label"><small><strong>Where are you going?</strong></small></label>
+        <div class="dropdown">
+        <input type="text" class="form-control" id="destination" placeholder="City, hotel, or place of interest">
+        <div class="dropdown-content">
+            <a href="destinations.html#af" target="blank"><i class="fa-solid fa-location-dot"></i> Afghanistan</a>
+            <a href="destinations.html#tg" target="blank"><i class="fa-solid fa-location-dot"></i> Tajikistan</a>
+            <a href="destinations.html#ir" target="blank"><i class="fa-solid fa-location-dot"></i> Iran</a>
+            <a href="destinations.html#pk" target="blank"><i class="fa-solid fa-location-dot"></i> Pakistan</a>
+            <a href="destinations.html#tk" target="blank"><i class="fa-solid fa-location-dot"></i> Turkey</a>
+        </div>
+       </div>
+    </div>
+    <div class="col-md-2">
+        <label for="check-in" class="form-label"><small><strong>Check-in Date</strong></small></label>
+        <input type="date" class="form-control" id="check-in">
+    </div>
+    <div class="col-md-2">
+        <label for="check-out" class="form-label"><small><strong>Check-out Date</strong></small></label>
+        <input type="date" class="form-control" id="check-out">
+    </div>
+    <div class="col-md-3">
+        <label class="form-label"><small><strong>Guests & Rooms</strong></small></label>
+    <button type="button" class="form-control text-start" 
+           data-bs-toggle="modal" data-bs-target="#guestModal">
+       <span id="guest-summary">2 Adults, 0 Children, 1 Room</span>
+   </button>
+</div>
+
+<!-- Guests & Rooms -->
+<div class="modal fade" id="guestModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <h5>Select Guests & Rooms</h5>
+
+      <!-- Adults -->
+      <div>
+        <label>Adults: </label>
+        <button type="button" id="adultMinus">-</button>
+        <span id="adultNum">2</span>
+        <button type="button" id="adultPlus">+</button>
+      </div>
+
+      <!-- Children -->
+      <div>
+        <label>Children: </label>
+        <button type="button" id="childMinus">-</button>
+        <span id="childNum">0</span>
+        <button type="button" id="childPlus">+</button>
+      </div>
+
+      <!-- Rooms -->
+      <div>
+        <label>Rooms: </label>
+        <button type="button" id="roomMinus">-</button>
+        <span id="roomNum">1</span>
+        <button type="button" id="roomPlus">+</button>
+      </div>
+
+      <div class="mt-3">
+        <button type="button" id="doneBtn" data-bs-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+   
+    <div class="col-md-2 d-grid align-self-end">
+        <button type="submit" class="btn btn-success btn-lg" id="searchBtn"><i class="fa fa-search"></i> search</button>
+    </div>
+    </form>
+    </div>
+    </div>
+    </header>
+<section class=" main">
+    <section class="second">
+        <div class="boxing">
+            <div class="map-box col-md-9">
+                <!-- map for hotel  -->
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13146.623947449538!2d69.11906988358372!3d34.53694277113717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16f15cf17df75%3A0x62980b4eccf2110b!2sKabul%20Intercontinental%20Hotel!5e0!3m2!1sen!2s!4v1758520786884!5m2!1sen!2s" width="200" height="200" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p style="text-align: start;"><i class="fa-solid fa-location-dot"></i> inter continental</p>
+            </div>
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5864.265398575944!2d69.17332045006816!3d34.52039433365222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16eb6f8e3be9d%3A0x7ac4563577c828f9!2sKabul%20Serena%20Hotel!5e0!3m2!1sen!2s!4v1758527015651!5m2!1sen!2s" width="200" height="200" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p style="text-align: start;"><i class="fa-solid fa-location-dot"></i> Kabul Serena</p>
+            </div>
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d821.7205043632617!2d69.16868684827742!3d34.53122389231527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d16f004a7b0117%3A0x813386d104c75bde!2zQ2xvY2sgVG93ZXIgSG90ZWwgQmVzdCAmIEx1eHVyeSBIb3RlbCBpbiBLYWJ1bC0g2qnZhNin2qkg2KrYp9mI2LEg2YfYqtmELCBDbG9jayBUb3dlciBIb3RlbCwgWmFyZ29uYSBSZCwgS2FidWwgMjUwMCwgQWZnaGFuaXN0YW4!5e0!3m2!1sen!2s!4v1758528142407!5m2!1sen!2s" width="200" height="200" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p style="text-align: start;"><i class="fa-solid fa-location-dot"></i> Clock Tower</p>
+            </div>
+            <div class="h1" id="af">
+                <h1><i class="fa fa-location-arrow" aria-hidden="true"></i> Afghanistan</h1>
+            </div>
+            </div>
+            <div class="flix ">
+            <div class="col-md-3">
+                <!-- fiter part -->
+                <div class="move-up filter-box">
+                <h5>filter By: </h5>
+                <h6>populer: </h6>
+                <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label class="form-check-lable" for="parking">Parking</label>
+                </div>
+                <div class="form-check">
+                   <input type="checkbox" id="check-in" class="form-check-input">
+                    <label class="form-check-lable" for="hotels">Hotels</label>
+                </div>
+                <hr>
+                <h6>Property type</h6>
+                <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label class="form-check-lable" for="apartments">Apartments</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label class="form-check-lable" for="guest-houses">Guest houses</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="check-in">
+                    <label class="form-check-label" for="b&b">Bed and Breakfasts</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="check-in">
+                    <label class="form-check-label" for="holiday">Holiday Homes</label>
+                </div>
+                <hr>
+                <h6>Room facilities</h6>
+                <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="view" class="form-check-label">see views</label>
+                </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="pool" class="form-check-label">privet pool</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="Air-conditioning" class="form-check-label">Air conditioning</label>
+                 </div>
+                  <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="rooms" class="form-check-label">Entire homes & apartments</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="Parking" class="form-check-label">Free parking</label>
+                 </div>
+                 <hr>
+                 <h6>Facilities</h6>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="Tourist" class="form-check-label">Tourist attractions</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="Villas" class="form-check-label">Villas</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="Parking" class="form-check-label">Accessible parking</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="smoking" class="form-check-label">Non-smoking rooms</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="Balcony" class="form-check-label">Balcony</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="bathroom" class="form-check-label">Private bathroom</label>
+                 </div>
+                 <hr>
+                 <h6>Reasons to visit the area</h6>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="trips" class="form-check-label">City trips</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="Tourist" class="form-check-label">Tourist attractions</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="clean" class="form-check-label">Cleanliness</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="Nature" class="form-check-label">Nature</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="Romance" class="form-check-label">Romance</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="family" class="form-check-label">Family friendly trips</label>
+                 </div>
+                 <hr>
+                 <h6>Travel group</h6>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="pets" class="form-check-label">Pets allowed</label>
+                 </div>
+                 <div class="form-check">
+                    <input type="checkbox" id="check-in" class="form-check-input">
+                    <label for="Adults" class="form-check-label">Adults only</label>
+                 </div>
+                </div>
+                <hr>
+                <!-- this is save for my netx trip html -->
+                 <div class="Toggle">
+                <h5>💖 Saved Hotels</h5>
+                <ul id="savedHotelsList" class="saved-list">
+                  <!-- نام هتل‌های ذخیره‌شده اینجا می‌آیند -->
+                </ul>
+                </div>
+                </div>
+            <div class="move-up">
+                <!-- cards of hotels in deffirent country html -->
+                 <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/Hotel-InterContinental-Kabul.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Inter-continental</h3>
+                        <div>
+                            <span class="rating">6.3 superb</span>
+                            <span class="reviews">(220 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Kart-e-Parwan near of Bagh-e-Bala. Kabul, Afghanistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            2.4 km away form center of city
+                        </p>
+                        <h3> Facilities </h3>
+                            <ul class="description">
+                                <li>Modern rooms with air conditioning, free internet and room service</li>
+                                <li>outdoor pool</li>
+                                <li>Conference and celebration halls</li>
+                            </ul>
+                        <button class="price-btn">Price</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/serena-hotel.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Kabul serena</h3>
+                        <div>
+                            <span class="rating">8.3 superb</span>
+                            <span class="reviews">(420 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            kabul, shahr-e-new near of Zarnegar park 
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            8 km away from Hamid Karzai international Airport
+                        </p>
+                        <h3>Facilitie</h3>                    
+                            <ul class="description">
+                                <li>177 rooms and suites with high-speed internet</li>
+                                <li>2 restaurants, 2 lounges, 1 bar</li>
+                                <li>Dry cleaning services</li>
+                            </ul>
+                       <button class="price-btn">Price</button>
+                    </div>
+                </div>
+           </div> 
+           <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/clock.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Clock Tower</h3>
+                        <div>
+                            <span class="rating">6.3 superb</span>
+                            <span class="reviews">(110 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             Great Massoud Road, Near to US, Kabul, Afghanistan. 
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            3.2 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                            <ul class="description">
+                                <li>Free Breakfasts</li>
+                                <li>Armed guards and 24/7 surveillance</li>
+                                <li>High perimeter walls with blast protection</li>
+                            </ul>
+                        
+                        <button class="price-btn">Price</button>
+                    </div>
+                </div>
+           </div>
+             <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/Shahi.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Shahi continental</h3>
+                        <div>
+                            <span class="rating">6.3 superb</span>
+                            <span class="reviews">(110 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             which is located in the center of the city and in front of the Buddha statues. Bamiyan, Afghanistan 
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.2 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-users" aria-hidden="true"></i> view of budda status</li>
+                                <li><i class="fa fa-handshake-o" aria-hidden="true"></i> Armed guards and 24/7 surveillance</li>
+                                <li><i class="fa fa-gavel" aria-hidden="true"></i> High perimeter walls with blast protection</li>
+                            </ul>
+                        </p>
+                        <button class="price-btn">Price</button>
+                    </div>
+                </div>
+           </div> 
+           <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/mazar.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Barat Hotel</h3>
+                        <div>
+                            <span class="rating">4.3 superb</span>
+                            <span class="reviews">(90 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             which is located in the center of the balkh city. Mazer-e-Sharif, Balkh, Afghanistan 
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.1 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa-solid fa-mountain-sun"></i> Green space</li>
+                                <li><i class="fa fa-handshake-o" aria-hidden="true"></i>Armed guards and 24/7 surveillance</li>
+                                <li><i class="fa-solid fa-house"></i> Large rooms with air conditioning</li>
+                            </ul>
+                        </p>
+                        <button class="price-btn">Price</button>
+                    </div>
+                </div>
+           </div> 
+            <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/heart.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Asil Hotel</h3>
+                        <div>
+                            <span class="rating">3.3 superb</span>
+                            <span class="reviews">(110 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             located in the y. Mazer-e-Sharif, Balkh, Afghanistan 
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.1 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free Wi-Fi</li>
+                                <li><i class="fa-solid fa-utensils"></i> free Breakfasts</li>
+                                <li><i class="fa fa-car" aria-hidden="true"></i> free parking</li><br><br><br><br>
+                            </ul>
+                        </p>
+                        <button class="price-btn">Price</button>
+                    </div>
+                </div>
+           </div>
+                 </div>
+           <div class="h2" style="padding: 30px; margin-top: 35px;" id="tg">
+                <h1><i class="fa fa-location-arrow" aria-hidden="true"></i> Tajikistan:</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/tg-serena.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Dushanbe Serena hotel</h3>
+                        <div>
+                            <span class="rating">9.3 superb</span>
+                            <span class="reviews">(210 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Location is good, attitude of satff members are excellent
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.1 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free Wi-Fi</li>
+                                <li>pool eith view</li>
+                                <li><i class="fa-solid fa-utensils"></i> Restaurant</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/soro.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Soro Hotel</h3>
+                        <div>
+                            <span class="rating">9.3 superb</span>
+                            <span class="reviews">(210 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            in nisor muhammad street, nera of paykar mall, dushanbe, Tajikistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.1 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Airport transfer</li>
+                                <li> Sauna</li>
+                                <li><i class="fa-solid fa-utensils"></i> Steamroom</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                </div> 
+            </div>
+        </div>
+             
+            <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/isra.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">IsraHotel Dushanbe</h3>
+                        <div>
+                            <span class="rating">9.3 superb</span>
+                            <span class="reviews">(210 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             center of city Ayni street dushanbe, Tajikistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.7 km away from dushanbe Airport
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free Wi-Fi</li>
+                                <li><i class="fa-solid fa-utensils"></i> Sauna</li>
+                                <li><i class="fa fa-food" aria-hidden="true"></i> Daily housekeeping</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                    </div> 
+            </div>
+        </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/rumi.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">The Rumi Hotel</h3>
+                        <div>
+                            <span class="rating">8.5 superb</span>
+                            <span class="reviews">(210 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            bekhzod streer, near of GreenBazar, dushanbe, Tajikistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.1 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free Wi-Fi</li>
+                                <li><i class="fa-solid fa-utensils"></i> pool eith view</li>
+                                <li><i class="fa fa-food" aria-hidden="true"></i> Restaurant</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                  </div> 
+            </div>
+        </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/almaz.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Almaz - Hotel</h3>
+                        <div>
+                            <span class="rating">9.0 superb</span>
+                            <span class="reviews">(100 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            in center of city, Dushanbe, Tajikistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.1 km away from Dushanbe Airport
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free Wi-Fi</li>
+                                <li><i class="fa-solid fa-utensils"></i> Sauna</li>
+                                <li><i class="fa fa-food" aria-hidden="true"></i> free Breakfasts</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                    </div> 
+            </div>
+        </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/tajik.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Hilton Dushanbe</h3>
+                        <div>
+                            <span class="rating">9.3 superb</span>
+                            <span class="reviews">(210 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                           Ayni street, Dushanbe City Center, Dushanbe, Tajikistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Room service [24-hour]</li>
+                                <li><i class="fa-solid fa-utensils"></i> Daily housekeeping</li>
+                                <li><i class="fa fa-food" aria-hidden="true"></i> Currency exchange</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                    </div> 
+                 </div>
+             </div>
+            </div>
+             <div class="h2" style="padding: 30px; margin-top: 45px;" id="ir">
+                <h1><i class="fa fa-location-arrow" aria-hidden="true"></i> Iran:</h1>
+             </div>
+             <div class="row">
+                <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/espinas.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Espenas Palas Tehran</h3>
+                        <div>
+                            <span class="rating">9.3 superb</span>
+                            <span class="reviews">(210 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            in the rigion of Saadat Abad Tehran city, Tehran, Iran
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> luxury system</li>
+                                <li> View of Tehran city</li>
+                                <li><i class="fa-solid fa-utensils"></i> Free Breakfasts</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/Parsian-Esteghlal-Hotel.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Parsian Esteghlal Hotel</h3>
+                        <div>
+                            <span class="rating">9.3 superb</span>
+                            <span class="reviews">(10 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Location is good, attitude of satff members are excellent
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.1 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free Wi-Fi</li>
+                                <li> Suana</li>
+                                <li><i class="fa-solid fa-utensils"></i> Free Breakfasts</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/yezd.jpg');">
+                        <div class="hotel-badge">E-5</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">yezd Hotel</h3>
+                        <div>
+                            <span class="rating">7.3 superb</span>
+                            <span class="reviews">(80 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            on yezd city near the 
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.1 km away from center of city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free Wi-Fi</li>
+                                <li> better services</li>
+                                <li><i class="fa-solid fa-utensils"></i> Restaurant</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/sapnga.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Golden palace hotel</h3>
+                        <div>
+                            <span class="rating">7.3 superb</span>
+                            <span class="reviews">(100 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Location is good, on Mashehad, Iran
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            7.1 km away from Tehran city
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free Wi-Fi</li>
+                                <li>pool eith view</li>
+                                <li><i class="fa-solid fa-utensils"></i> Restaurant</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+         <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/asfahan.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Abasy Asfahan Hotel</h3>
+                        <div>
+                            <span class="rating">4.3 superb</span>
+                            <span class="reviews">(95 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Location is good, attitude of satff members are excellent
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            7.1 km away from Tehran, Mashehad, Iran
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> save place</li>
+                                <li> Armed guards and 24/7 surveillance</li>
+                                <li><i class="fa-solid fa-utensils"></i> Restaurant</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/lala.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">LaLeh Park Tabriz</h3>
+                        <div>
+                            <span class="rating">4.3 superb</span>
+                            <span class="reviews">(1665 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Location is good, on tabriz city,  Tabriz, Iran
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            9.5 km away from Tehran,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> save place</li>
+                                <li> Armed guards and 24/7 surveillance</li>
+                                <li><i class="fa-solid fa-utensils"></i> Restaurant</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+             </div>
+               
+            <div class="h2" style="padding: 30px; margin: 40px; margin-top: 35px;" id="pk">
+                <h1><i class="fa fa-location-arrow" aria-hidden="true"></i> Pakistan:</h1>
+             </div>
+             <div class="row">
+                <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/pk1.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Premium Residency-MOI-F7</h3>
+                        <div>
+                            <span class="rating">10 superb</span>
+                            <span class="reviews">(325 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             Jinnah Avenue, 46000 Islamabad, Pakistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.5 km away from center f city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> City view</li>
+                                <li> Landmark view</li>
+                                <li><i class="fa-solid fa-utensils"></i> Terrace</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/pk2.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                       <div class="card-content">
+                        <h3 class="hotel-title">Taj Executive Hotel</h3>
+                        <div>
+                            <span class="rating">10 superb</span>
+                            <span class="reviews">(325 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             TAJ Hotel, 44000 Islamabad, Pakistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1 km away from center f city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Room service</li>
+                                <li> Flat-screen TV</li>
+                                <li><i class="fa-solid fa-utensils"></i> Terrace</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/pk3.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                       <div class="card-content">
+                        <h3 class="hotel-title">Centaurus Hotel </h3>
+                        <div>
+                            <span class="rating">10 superb</span>
+                            <span class="reviews">(325 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             Nazim-ud-din Road 13th Floor Tower B, Blue Area, Islamabad, Pakistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1 km away from center f city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free Private Parking Available On Site</li>
+                                <li> Fitness center</li>
+                                <li><i class="fa-solid fa-utensils"></i> Mountain view</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div> 
+         <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/pk4.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                       <div class="card-content">
+                        <h3 class="hotel-title"> Blue Moon Residency </h3>
+                        <div>
+                            <span class="rating">8.6 superb</span>
+                            <span class="reviews">(150 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             House no 2A, Street no 26,F-6/2, F-6 Sector, Islamabad, Pakistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1 km away from center from city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free Wifi</li>
+                                <li> Room service</li>
+                                <li><i class="fa-solid fa-utensils"></i> Family rooms</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/pk5.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                       <div class="card-content">
+                        <h3 class="hotel-title"> Luxury Apartment Rentals </h3>
+                        <div>
+                            <span class="rating">8.6 superb</span>
+                            <span class="reviews">(150 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             45 Khalid Bin Waleed Road Flat 102, Puran Arcade 1, E11-2 Markaz SECHS Islamabad, E-11 Sector
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            2.1 km away from center from city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Pet friendly</li>
+                                <li> Free Parking Available On Site</li>
+                                <li><i class="fa-solid fa-utensils"></i> Private bathroom</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/pk6.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                       <div class="card-content">
+                        <h3 class="hotel-title"> Shelton's Ambassador Hotel Blue Area </h3>
+                        <div>
+                            <span class="rating">9.1 superb</span>
+                            <span class="reviews">(150 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                             111 East AKM Fazl-ul-Haq Rd, Blue Area, 44000 Islamabad, Pakistan
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            2.1 km away from center from city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Non-smoking rooms</li>
+                                <li> Airport shuttle</li>
+                                <li><i class="fa-solid fa-utensils"></i> Bathtub</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+             </div>
+              
+        <div class="h2" style=" padding: 30px; margin: 40px; margin-top: 35px;" id="tk">
+                <h1><i class="fa fa-location-arrow" aria-hidden="true"></i> Turkey:</h1>
+             </div>
+             <div class="row">
+<div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/turk2.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Weingart Suites Hotel</h3>
+                        <div>
+                            <span class="rating">9.3 superb</span>
+                            <span class="reviews">(1,827 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Hacimimi Mahallesi Karabaşdere street No:38/40 İstanbul, Turkey
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.5 km away from center of city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Non-smoking rooms</li>
+                                <li> Family rooms</li>
+                                <li><i class="fa-solid fa-utensils"></i> Shower</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/turk1.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">The Hotels Galata</h3>
+                        <div>
+                            <span class="rating">9.2 superb</span>
+                            <span class="reviews">(395 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Okçu Musa street, Midilli road, Istanbul, Turkey
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.5 km away from center of city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Fitness centre</li>
+                                <li> Family rooms</li>
+                                <li><i class="fa-solid fa-utensils"></i> Room service</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/turk3.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Bentley Hotel</h3>
+                        <div>
+                            <span class="rating">9.4 superb</span>
+                            <span class="reviews">(2,284 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Baba Ali street No 2, Fatih, 34096 Istanbul, Turkey
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.1 km away from center of city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Free WiFi</li>
+                                <li><i class="fa-solid fa-utensils"></i> Restaurant</li>
+                                <li><i class="fa-solid fa-utensils"></i> Facilities for disabled guests</li>
+                            </ul>
+                        </p>
+                    <button  class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/turk4.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Gleam Collection Hotel</h3>
+                        <div>
+                            <span class="rating">9.4 superb</span>
+                            <span class="reviews">(3,895 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Dershane Sokaği 16, Sisli, 34371 Istanbul, Turkey
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.5 km away from center of city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Fitness centre</li>
+                                <li> View</li>
+                                <li><i class="fa-solid fa-utensils"></i> Parking</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/turk5.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Westin Istanbul Nisantasi</h3>
+                        <div>
+                            <span class="rating">4.3 superb</span>
+                            <span class="reviews">(95 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Halaskargazi street No 38-66A Sisli, Sisli, 34371 Istanbul, Turkey
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.1 km away from center of city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Fitness centre</li>
+                                <li> Family rooms</li>
+                                <li> Room service</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+       
+         <div class="col-lg-4 col-md-6">
+                <div class="hotel-card">
+                    <div class="hotel-image" style="background-image: url('./img/turk6.jpg');">
+                        <div class="hotel-badge">E-7</div>
+                        <div class="save-hotels" onclick="toggleSave(this)">
+                             <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="hotel-title">Hotel De Reve Galata</h3>
+                        <div>
+                            <span class="rating">9.3 superb</span>
+                            <span class="reviews">(1,955 reviews)</span>
+                        </div>
+                        <p class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Galata Şarap İskelesi Sokak No: 10 Karaköy, Beyoglu, 34425 Istanbul, Turkey
+                        </p>
+                        <p class="distance">
+                            <i class="fas fa-road"></i>
+                            1.5 km away from center of city,
+                        </p>
+                        <h3>
+                            Facilities
+                        </h3>
+                        <p class="description">
+                            <ul>
+                                <li><i class="fa fa-wifi" aria-hidden="true"></i> Pets allowed/li>
+                                <li><i class="fa-solid fa-utensils"></i>  2 restaurants</li>
+                                <li> Air conditioning</li>
+                            </ul>
+                        </p>
+                    <button class="price-btn">Price</button>
+                 </div> 
+            </div>
+        </div>
+             </div>
+             </div>
+             
+        </div>
+    </section>
+</section>
+<section class="last-section">
+        <div class="last-part">
+            <div class="list-part">
+            <div class="footer-link">
+                <h2>support</h2>
+                <a href="#">Coronavirus (COVID-19) FAQS</a><br>
+                <a href="#">Manage your trips</a><br>
+                <a href="#">Privacy & cookies</a><br>
+                <a href="#">Contact Customer Service</a><br>
+                <a href="#">Safety resource centre</a><br>
+            </div>
+            <div class="footer-link">
+                <h2>Discover</h2>
+                <a href="#">Genius loyalty programme</a><br>
+                <a href="#">Seasonal and holiday deals</a><br>
+                <a href="#">Travel articles</a><br>
+                <a href="#">Rah-e-Abrisham.travel for Business</a><br>
+                <a href="#">Rah-e-Abrisham.travel for Travel Agents</a><br>
+            </div>
+            <div class="footer-link">
+                <h2>Terms and settings</h2>
+                <a href="#">Privacy & cookies</a><br>
+                <a href="#">Terms of Service</a><br>
+                <a href="#">Accessibility Statement</a><br>
+                <a href="#">Partner dispute</a><br>
+                <a href="#">Modern Slavery Statement</a><br>
+            </div>
+        </div>
+        <hr class="hr">
+        <footer>
+            <p>Copyright © 2025/ Rah-e-Abrisham.travel. All rights reserved.</p>
+        </footer>
+        </div>
+    </section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
