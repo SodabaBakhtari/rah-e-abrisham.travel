@@ -35,6 +35,9 @@
             background-color: rgba(241, 241, 241, 0.575) !important;
             transition: background-color 0.3s;
         }
+        body.darkmode .navbar-toggler{
+            background-color: #f1f1f1;
+        }
     </style>
 </head>
 <body id="page-top dark-mode" >
@@ -100,43 +103,34 @@
       <small><strong>Guests & Rooms</strong></small>
    </label>
 
-   <!-- دکمه برای باز کردن مدال -->
    <button type="button" class="form-control text-start" 
            data-bs-toggle="modal" data-bs-target="#guestModal">
        <span id="guest-summary">2 Adults, 0 Children, 1 Room</span>
    </button>
 </div>
 
-<!-- مدال برای انتخاب Guests & Rooms -->
 <div class="modal fade" id="guestModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content p-3">
       <h5>Select Guests & Rooms</h5>
-
-      <!-- Adults -->
       <div>
         <label>Adults: </label>
         <button type="button" id="adultMinus" class="minas">-</button>
         <span id="adultNum">2</span>
         <button type="button" id="adultPlus" class="plural">+</button>
       </div>
-
-      <!-- Children -->
       <div>
         <label>Children: </label>
         <button type="button" id="childMinus" class="minas">-</button>
         <span id="childNum">0</span>
         <button type="button" id="childPlus" class="plural">+</button>
       </div>
-
-      <!-- Rooms -->
       <div>
         <label>Rooms: </label>
         <button type="button" id="roomMinus" class="minas">-</button>
         <span id="roomNum">1</span>
         <button type="button" id="roomPlus" class="plural">+</button>
       </div>
-
       <div class="mt-3">
         <button type="button" id="doneBtn" data-bs-dismiss="modal">Done</button>
       </div>
@@ -149,6 +143,7 @@
     </form>
     </div>
     </header>
+
     <!-- second section -->
 
 <section class="main">
@@ -261,13 +256,14 @@
                 <h3>Sign in, save money</h3>
                 <p>Save 10% or more at participating properties - just look for the blue Genius label</p>
                 <a class="btn btn-success ms-2" href="index.html">Sign-in</a>
-                <a class="btn" href="home.html#destinations" style="color: teal;">register</a>
+                <a class="btn" href="home.html#destination" style="color: teal;">register</a>
             </div>
         </div>
     </section>
     <h2 class="API-text">contact with our team</h2>
     <div id="userProfiles" class="user-container"></div>
 </section>
+<!-- footer part -->
     <section class="last-section">
         <div class="last-part">
             <div class="list-part">

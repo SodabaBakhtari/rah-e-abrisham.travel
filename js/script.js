@@ -126,13 +126,10 @@ const enableDarkmode = () => {
     localStorage.setItem("darkmode", "active")
     darkMode = "active"
 }
-
 const disableDarkmode = () => {
     document.body.classList.remove("darkmode")
     localStorage.setItem("darkmode", null)
 }
-// ...existing code...
-
 if (themeSwitch) {
     themeSwitch.addEventListener("click", () => {
         darkMode = localStorage.getItem("darkmode")
@@ -146,69 +143,48 @@ if (themeSwitch) {
     console.warn("theme-switch element not found in DOM")
 }
 
-// if(darkMode === "active") enableDarkmode()
-
-// themeSwitch.addEventListener("click", ()=> {
-//     darkMode = localStorage.getItem("darkmode")
-//     if(darkMode !== "active"){
-//         enableDarkmode()
-//     }else {
-//         disableDarkmode()
-//     }
-// })
-// my next trip 
 let savedHotels = [];
 
 // for heart to save my next trip
 function toggleSave(element) {
     element.classList.toggle("active");
-
     let icon = element.querySelector("i");
     let hotelTitle = element.closest(".hotel-card")
         .querySelector(".hotel-title").innerText;
 
     if (element.classList.contains("active")) {
         icon.classList.remove("far");
-        icon.classList.add("fas"); // قلب پر
+        icon.classList.add("fas");
         if (!savedHotels.includes(hotelTitle)) {
             savedHotels.push(hotelTitle);
         }
     } else {
         icon.classList.remove("fas");
-        icon.classList.add("far"); // قلب خالی
+        icon.classList.add("far");
         savedHotels = savedHotels.filter(item => item !== hotelTitle);
     }
-
     updateSavedList();
 }
 // this is save for my netx trip JS part 
 function updateSavedList() {
     const savedList = document.getElementById("savedHotelsList");
     savedList.innerHTML = "";
-
     if (savedHotels.length === 0) {
         savedList.innerHTML = "<li class='empty'>there are no saved hotels</li>";
         return;
     }
-
     savedHotels.forEach(hotel => {
         const li = document.createElement("li");
         li.textContent = "🏨 " + hotel;
         savedList.appendChild(li);
     });
 }
-// اضافه کردن عملکرد برای دکمه‌های Price
-const priceButtons = document.querySelectorAll(".price-btn");
+const priceButtons = document.querySelectorAll(".price-btn")
 priceButtons.forEach(button => {
     button.addEventListener("click", function() {
         const hotelTitle = this.closest(".hotel-card")
             .querySelector(".hotel-title").innerText;
-
-        // می‌توانید این URL را به صفحه سرچ خود تغییر دهید
-        // و پارامترهای تاریخ ورود و خروج را اضافه کنید
         const Url = `destination.html?hotel=${encodeURIComponent(hotelTitle)}&checkin=2025-10-01&checkout=2025-10-05`;
-
-        // رفتن به صفحه سرچ
         window.location.href = "destinations.html#";
     });
 });
