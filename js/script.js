@@ -254,19 +254,3 @@ const contactForm = document.getElementById("formContact");
             alert('Your message was sent successfully!');
         contactForm.reset();
     });
-
-if (window.innerWidth <= 768) {
-  const desAF = document.querySelector(".des-AF");
-  const nextBtn = document.getElementById("nextBtn");
-  const prevBtn = document.getElementById("prevBtn");
-
-  const cardWidth = desAF.querySelector(".col-md-6").offsetWidth + 15; // 15 = margin-right
-
-  nextBtn.addEventListener("click", () => {
-    desAF.scrollBy({ left: cardWidth, behavior: "smooth" });
-  });
-
-  prevBtn.addEventListener("click", () => {
-    desAF.scrollBy({ left: -cardWidth, behavior: "smooth" });
-  });
-}
