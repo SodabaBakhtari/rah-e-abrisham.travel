@@ -42,9 +42,3 @@ that allows users to explore hotels, plan their trips, and enjoy an engaging bro
 Designed and developed with ❤️
 
 ---
-
-## 📜 License
-
-This project is **for presentation purposes only** and is **not open source**.
-
----
